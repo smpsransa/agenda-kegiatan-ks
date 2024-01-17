@@ -1,5 +1,5 @@
 <?php
-include("connection.php");
+include("../connection.php");
 
 if (!isset($_GET['id'])) {
     // jika tidak ada ID, akan langsung dilempar ke halaman utama

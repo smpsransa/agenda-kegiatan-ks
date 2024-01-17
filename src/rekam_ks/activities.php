@@ -1,5 +1,5 @@
-<?php include "connection.php";   ?>
-<?php include "table_style.php";   ?>
+<?php include "../connection.php";   ?>
+<?php include "../table_style.php";   ?>
 
 <fieldset>
     <legend>rekam kegiatan KS</legend>

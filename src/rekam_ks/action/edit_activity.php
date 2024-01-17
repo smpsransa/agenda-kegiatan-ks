@@ -1,5 +1,5 @@
 <?php
-include("../connection.php");
+include("../../connection.php");
 
 if (isset($_POST['action_edit'])) {
     // ambil data dari form

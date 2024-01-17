@@ -1,5 +1,5 @@
 <?php
-include("../connection.php");
+include("../../connection.php");
 include("../util/uuid_generator.php");
 
 if (isset($_POST['action_add'])) {
