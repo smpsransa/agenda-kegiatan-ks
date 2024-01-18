@@ -20,7 +20,7 @@
             </div>
             <div id="input_acara">
                 <label for="pukul">Acara</label><br />
-                <textarea type="text" id="acara" name="acara" placeholder="contoh: diklat ruang publik lestari"></textarea>
+                <textarea id="acara" name="acara" placeholder="contoh: diklat ruang publik lestari"></textarea>
             </div>
         </fieldset>
         <br />

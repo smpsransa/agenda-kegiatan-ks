@@ -2,26 +2,28 @@
 include("../../connection.php");
 include("../util/uuid_generator.php");
 
-if (isset($_POST['action_add_code'])) {
+if (isset($_POST['action_add'])) {
     // ambil data dari form
-    $form_code = $_POST['code'];
-    $form_name = $_POST['name'];
-    $form_desc = $_POST['desc'];
-    $form_more = $_POST['more'];
+    $form_code_id = $_POST['code_id'];
+    $form_date = $_POST['date'];
+    $form_sent = $_POST['to'];
+    $form_about = $_POST['about'];
+    $form_note = $_POST['note'];
+
 
     // query ke database untuk menyimpan sebagai baris dengan masing-masing kolom (tanggal, pukul, tempat, agenda)
-    $sql = "INSERT INTO statement_code (id, code, name, description, more) VALUE ('$UUID','$form_code', '$form_name', '$form_desc', '$form_more');";
+    $sql = "INSERT INTO statement_out (id, code_id, date, sent, about, note) VALUES ('$UUID','$form_code_id', '$form_date', '$form_sent', '$form_about', '$form_note');";
     $query = mysqli_query($db, $sql);
 
     if (!$query) {
         // jika query gagal
         // akan alihkan ke halaman indek.php dengan status=failed
-        header('Location: ../code_setting.php?status=failed');
+        header('Location: ../index.php?status=failed');
     }
 
     // jika query berhasil disimpan
     // akan di alihkan ke halaman index.php dengan status=success
-    header('Location: ../code_setting.php?status=success');
+    header('Location: ../index.php?status=success');
 } else {
     die("maaf terjadi kesalahan");
 }

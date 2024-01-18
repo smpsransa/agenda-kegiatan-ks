@@ -1,6 +1,8 @@
-<?php
-include("../connection.php");
+<?php $meta_title = "Sunting Surat Keluar" ?>
+<?php include "../meta_html/common_start.php" ?>
 
+<!-- body start -->
+<?php
 if (!isset($_GET['id'])) {
     // jika tidak ada ID, akan langsung dilempar ke halaman utama
     header('Location: activities.php');
@@ -13,6 +15,7 @@ $data_id = $_GET['id'];
 $sql = "SELECT * FROM agenda WHERE id='$data_id';";
 $query = mysqli_query($db, $sql);
 
+// to consume by form later
 $data = mysqli_fetch_assoc($query);
 
 // jika data yang di-edit tidak ditemukan
@@ -44,10 +47,14 @@ if (mysqli_num_rows($query) < 1) {
             </div>
             <div id="input_acara">
                 <label for="pukul">Acara</label><br />
-                <textarea type="text" id="acara" name="acara" placeholder="contoh: diklat ruang publik lestari"><?php echo $data['acara'] ?></textarea>
+                <textarea id="acara" name="acara" placeholder="contoh: diklat ruang publik lestari"><?php echo $data['acara'] ?></textarea>
             </div>
         </fieldset>
         <br />
         <button type="submit" name="action_edit">perbarui</button>
+        <button type="reset" onclick="window.location.href='index.php'">batalkan</button>
     </fieldset>
 </form>
+<!-- body end -->
+
+<?php include "../meta_html/common_end.php" ?>
