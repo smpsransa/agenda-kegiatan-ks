@@ -12,10 +12,10 @@
 <?php endif; ?>
 
 <!-- alert action: simpan -->
-<?php if (isset($_GET['status'])) : ?>
+<?php if (isset($_GET['add_status'])) : ?>
     <p style="color:green; text-align: center;">
         <?php
-        if ($_GET['status'] == 'success') {
+        if ($_GET['add_status'] == 'success') {
             echo "SK berhasil disimpan!";
         } else {
             echo "SK gagal disimpan!";

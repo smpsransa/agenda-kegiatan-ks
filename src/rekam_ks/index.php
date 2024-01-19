@@ -4,12 +4,12 @@
 <!-- body start -->
 <ul id="menu">
     <li><a href="../">kembali</a></li>
-    <li><a href="view_agenda.php">Screen Agenda</a></li>
+    <li><a href="./view_agenda.php">Screen Agenda</a></li>
 </ul>
 
-<?php include("form_add.php"); ?>
-<?php include("util/post_alert.php"); ?>
-<?php include("activities.php"); ?>
+<?php include("./agenda_add.php"); ?>
+<?php include("./util/post_alert.php"); ?>
+<?php include("./agenda_table.php"); ?>
 <!-- body end -->
 
 <?php include "../meta_html/common_end.php" ?>

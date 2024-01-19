@@ -1,4 +1,4 @@
-<form action="action/add_activity.php" method="POST">
+<form action="./action/add_agenda.php" method="POST">
     <fieldset>
         <legend>form pencatatan agenda ks</legend>
         <fieldset>
@@ -7,10 +7,17 @@
                 <label for="tanggal">Tanggal</label><br />
                 <input type="date" id="tanggal" name="tanggal" />
             </div>
-            <div id="input_pukul">
-                <label for="pukul">Pukul</label><br />
-                <input type="time" id="pukul" name="pukul" />
-            </div>
+            <fieldset>
+                <legend>pukul</legend>
+                <div id="input_start">
+                    <label for="start">Mulai</label><br />
+                    <input type="time" id="start" name="start" />
+                </div>
+                <div id="input_pukul">
+                    <label for="end">Selesai</label><br />
+                    <input type="time" id="end" name="end" />
+                </div>
+            </fieldset>
         </fieldset>
         <fieldset>
             <legend>keterangan</legend>
@@ -25,5 +32,6 @@
         </fieldset>
         <br />
         <button type="submit" name="action_add">kirim</button>
+        <input type="reset" />
     </fieldset>
 </form>

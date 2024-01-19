@@ -1,4 +1,6 @@
-<form action="action/add_sk.php" method="POST">
+<?php require_once("../connection.php") ?>
+
+<form action="./action/add_sk.php" method="POST">
     <fieldset>
         <legend>form penulisan Surat Keluar</legend>
         <fieldset>
@@ -7,11 +9,11 @@
             <select name="code_id" id="code_id">
                 <option value="">pilih kode</option>
                 <?php
-                $sql = "SELECT * FROM statement_code";
+                $sql = "SELECT * FROM statement_code;";
                 $query = mysqli_query($db, $sql);
                 $index = 1;
                 while ($option = mysqli_fetch_array($query)) {
-                    echo '<option value="' . $option['id'] . '">' . $option['code'] . ': ' . $option['name'] . '</option>';
+                    echo ('<option value="' . $option['id'] . '">' . $option['code'] . ': ' . $option['name'] . '</option>');
                     $index++;
                 } ?>
             </select>
@@ -42,10 +44,16 @@
         </fieldset>
         <br />
         <button type="submit" name="action_add">kirim</button>
+        <input type="reset" onclick="reset_code_detail()" />
     </fieldset>
 </form>
 
 <script type="text/javascript">
+    function reset_code_detail() {
+        $('#code_description').html("......");
+        $('#code_detail').html("......");
+    }
+
     $('#code_id').change(function() {
         if ($('#code_id').val()) {
             $.post('action/ajax_code.php', {
@@ -56,8 +64,7 @@
                 $('#code_detail').html(detail);
             })
         } else {
-            $('#code_description').html("......");
-            $('#code_detail').html("......");
+            reset_code_detail();
         }
     });
 </script>

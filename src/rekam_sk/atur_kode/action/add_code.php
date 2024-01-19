@@ -1,18 +1,16 @@
 <?php
-require_once("../../connection.php");
-include("../util/uuid_generator.php");
+require_once("../../../connection.php");
+include("../../util/uuid_generator.php");
 
-if (isset($_POST['action_add'])) {
+if (isset($_POST['action_add_code'])) {
     // ambil data dari form
-    $form_code_id = $_POST['code_id'];
-    $form_date = $_POST['date'];
-    $form_sent = $_POST['to'];
-    $form_about = $_POST['about'];
-    $form_note = $_POST['note'];
-
+    $form_code = $_POST['code'];
+    $form_name = $_POST['name'];
+    $form_desc = $_POST['desc'];
+    $form_more = $_POST['more'];
 
     // query ke database untuk menyimpan sebagai baris dengan masing-masing kolom (tanggal, pukul, tempat, agenda)
-    $sql = "INSERT INTO statement_out (id, code_id, date, sent, about, note) VALUES ('$UUID','$form_code_id', '$form_date', '$form_sent', '$form_about', '$form_note');";
+    $sql = "INSERT INTO statement_code (id, code, name, description, more) VALUE ('$UUID', '$form_code', '$form_name', '$form_desc', '$form_more');";
 
     if (mysqli_query($db, $sql)) {
         // jika query berhasil disimpan

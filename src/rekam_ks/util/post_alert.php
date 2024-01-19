@@ -3,22 +3,22 @@
     <p style="color:red; text-align: center;">
         <?php
         if ($_GET['delete_status'] == 'success') {
-            echo "kegiatan berhasil dihapus!";
+            echo ("kegiatan berhasil dihapus!");
         } else {
-            echo "kegiatan gagal dihapus!";
+            echo ("kegiatan gagal dihapus!");
         }
         ?>
     </p>
 <?php endif; ?>
 
 <!-- alert action: simpan -->
-<?php if (isset($_GET['status'])) : ?>
+<?php if (isset($_GET['add_status'])) : ?>
     <p style="color:green; text-align: center;">
         <?php
-        if ($_GET['status'] == 'success') {
-            echo "kegiatan berhasil disimpan!";
+        if ($_GET['add_status'] == 'success') {
+            echo ("kegiatan berhasil disimpan!");
         } else {
-            echo "kegiatan gagal disimpan!";
+            echo ("kegiatan gagal disimpan!");
         }
         ?>
     </p>
@@ -29,9 +29,9 @@
     <p style="color:blue; text-align: center;">
         <?php
         if ($_GET['edit_status'] == 'success') {
-            echo "kegiatan berhasil diperbarui!";
+            echo ("kegiatan berhasil diperbarui!");
         } else {
-            echo "kegiatan gagal diperbarui!";
+            echo ("kegiatan gagal diperbarui!");
         }
         ?>
     </p>

@@ -7,7 +7,7 @@ if (isset($_GET['id'])) {
     $id = $_GET['id'];
 
     // query ke database untuk menghapus berdasarkan id sebagai target
-    $sql = "DELETE FROM statement_out WHERE id='$id';";
+    $sql = "DELETE FROM agenda WHERE id='$id';";
 
     if (mysqli_query($db, $sql)) {
         header('Location: ../index.php?delete_status=success');

@@ -1,3 +1,5 @@
+<?php require_once("../connection.php") ?>
+
 <?php $meta_title = "Sunting Surat Keluar" ?>
 <?php include "../meta_html/common_start.php" ?>
 
@@ -5,7 +7,7 @@
 <?php
 if (!isset($_GET['id'])) {
     // jika tidak ada ID, akan langsung dilempar ke halaman utama
-    header('Location: activities.php');
+    header('Location: ./index.php');
 }
 
 // ambil id dari parameter id
@@ -24,8 +26,8 @@ if (mysqli_num_rows($query) < 1) {
 }
 ?>
 
-<form action="action/edit_sk.php" method="POST">
-    <input type="hidden" name="id" value="<?php echo $data['id'] ?>" />
+<form action="./action/edit_sk.php" method="POST">
+    <input type="hidden" name="id" value="<?php echo ($data['id']) ?>" />
     <fieldset>
         <legend>sunting Surat Keluar</legend>
         <fieldset>
@@ -34,13 +36,13 @@ if (mysqli_num_rows($query) < 1) {
             <select name="code_id" id="code_id">
                 <option value="">pilih kode</option>
                 <?php
-                $sql = "SELECT * FROM statement_code";
+                $sql = "SELECT * FROM statement_code;";
                 $query = mysqli_query($db, $sql);
                 $index = 1;
                 while ($option = mysqli_fetch_array($query)) {
-                    echo '<option value="' . $option['id'] . '"';
+                    echo ('<option value="' . $option['id'] . '"');
                     if ($data['code_id'] == $option['id']) echo 'selected';
-                    echo '>' . $option['code'] . ': ' . $option['name'] . '</option>';
+                    echo ('>' . $option['code'] . ': ' . $option['name'] . '</option>');
                     $index++;
                 } ?>
             </select>
@@ -54,24 +56,24 @@ if (mysqli_num_rows($query) < 1) {
             <legend>Surat Keluar</legend>
             <div id="input_date">
                 <label for="date">Tanggal Surat</label><br />
-                <input type="date" id="date" name="date" value="<?php echo $data['date']?>" />
+                <input type="date" id="date" name="date" value="<?php echo ($data['date']) ?>" />
             </div>
             <div id="input_to">
                 <label for="to">Dikirim Kepada</label><br />
-                <input type="text" id="to" name="to" value="<?php echo $data['sent'] ?>" />
+                <input type="text" id="to" name="to" value="<?php echo ($data['sent']) ?>" />
             </div>
             <div id="input_about">
                 <label for="about">Isi Ringkasan</label><br />
-                <textarea id="about" name="about"><?php echo $data['about'] ?></textarea>
+                <textarea id="about" name="about"><?php echo ($data['about']) ?></textarea>
             </div>
             <div id="input_note">
                 <label for="note">Keterangan</label><br />
-                <textarea id="note" name="note"><?php echo $data['about'] ?></textarea>
+                <textarea id="note" name="note"><?php echo ($data['about']) ?></textarea>
             </div>
         </fieldset>
         <br />
         <button type="submit" name="action_edit">perbarui</button>
-        <button type="reset" onclick="window.location.href='index.php'">batalkan</button>
+        <button type="reset" onclick="window.location.href='./index.php'">batalkan</button>
     </fieldset>
 </form>
 
@@ -80,7 +82,7 @@ if (mysqli_num_rows($query) < 1) {
 
     function init_behaviour() {
         if ($(target).val()) {
-            $.post('action/ajax_code.php', {
+            $.post('./action/ajax_code.php', {
                 code_id: $(target).val()
             }, (response) => {
                 const [description, detail] = $.parseJSON(response);

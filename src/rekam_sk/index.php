@@ -4,12 +4,12 @@
 <!-- body start -->
 <ul id="menu">
     <li><a href="../">kembali</a></li>
-    <li><a href="code_setting.php">atur Kode SK</a></li>
+    <li><a href="./atur_kode">atur Kode SK</a></li>
 </ul>
 
-<?php include("form_add.php"); ?>
-<?php include("util/post_alert.php"); ?>
-<?php include("view_sk.php"); ?>
+<?php include_once("./sk_add.php"); ?>
+<?php include_once("./util/post_alert.php"); ?>
+<?php include_once("./view_sk.php"); ?>
 <!-- body end -->
 
 <?php include "../meta_html/common_end.php" ?>

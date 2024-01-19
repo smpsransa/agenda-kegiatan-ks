@@ -1,4 +1,4 @@
-<?php include "../table_style.php";   ?>
+<?php require_once("../connection.php") ?>
 
 <fieldset>
     <legend>rekam Surat Keluar (SK)</legend>
@@ -14,25 +14,27 @@
         </thead>
         <tbody>
             <?php
-            $sql = "SELECT * FROM statement_out ORDER BY date";
+            $sql = "SELECT * FROM statement_out sout INNER JOIN statement_code scode on sout.code_id = scode.id ORDER BY date;";
             $query = mysqli_query($db, $sql);
             $index = 1;
+            
             while ($data = mysqli_fetch_array($query)) {
-                echo "<tr>";
+                echo ("<tr>");
                 // column data
-                echo "<td>" . $index . "</td>";
-                echo "<td>" . $data['code_id'] . "</td>";
-                echo "<td>" . $data['date'] . "</td>";
-                echo "<td>" . $data['sent'] . "</td>";
-                echo "<td>" . $data['about'] . "</td>";
-                echo "<td>" . $data['note'] . "</td>";
-                echo "<td>";
-                echo "<a href='form_edit.php?id=" . $data['id'] . "'>sunting</a> | ";
-                echo "<a href='action/del_sk.php?id=" . $data['id'] . "'>hapus</a>";
-                echo "</td>";
-                echo "</tr>";
+                echo ("<td>" . $index . "</td>");
+                echo ("<td>" . $data['code'] . "</td>");
+                echo ("<td>" . $data['date'] . "</td>");
+                echo ("<td>" . $data['sent'] . "</td>");
+                echo ("<td>" . $data['about'] . "</td>");
+                echo ("<td>" . $data['note'] . "</td>");
+                echo ("<td>");
+                echo ("<a href='./sk_edit.php?id=" . $data[0] . "'>sunting</a> | ");
+                echo ("<a href='./action/del_sk.php?id=" . $data[0] . "'>hapus</a>");
+                echo ("</td>");
+                echo ("</tr>");
                 $index++;
-            } ?>
+            } 
+            ?>
         </tbody>
     </table>
 </fieldset>

@@ -1,9 +1,5 @@
 <?php require_once("../connection.php") ?>
 
-<?php $meta_title = "Screen Agenda KS" ?>
-<?php include "../meta_html/common_start.php" ?>
-
-<!-- body start -->
 <fieldset>
     <legend>rekam kegiatan KS</legend>
     <table>
@@ -13,6 +9,7 @@
             <th>pukul</th>
             <th>tempat</th>
             <th>agenda</th>
+            <th>tindakan</th>
         </thead>
         <tbody>
             <?php
@@ -24,15 +21,18 @@
                 // column data
                 echo ("<td>" . $index . "</td>");
                 echo ("<td>" . $activities['tanggal'] . "</td>");
-                echo ("<td>" .  date('H:i', strtotime($activities['start'])) . "-" . date('H:i', strtotime($activities['end']))  . "</td>");
+                echo ("<td>" . date('H:i', strtotime($activities['start'])) . "-" . date('H:i', strtotime($activities['end'])) . "</td>");
                 echo ("<td>" . $activities['tempat'] . "</td>");
                 echo ("<td>" . $activities['acara'] . "</td>");
+
+                // column action
+                echo ("<td>");
+                echo ("<a href='./agenda_edit.php?id=" . $activities['id'] . "'>sunting</a> | ");
+                echo ("<a href='./action/del_agenda.php?id=" . $activities['id'] . "'>hapus</a>");
+                echo ("</td>");
                 echo ("</tr>");
                 $index++;
             } ?>
         </tbody>
     </table>
 </fieldset>
-<!-- body end -->
-
-<?php include "../meta_html/common_end.php" ?>
