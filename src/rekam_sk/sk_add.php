@@ -9,7 +9,7 @@
             <select name="code_id" id="code_id">
                 <option value="">pilih kode</option>
                 <?php
-                $sql = "SELECT * FROM statement_code;";
+                $sql = "SELECT * FROM statement_code ORDER by code;";
                 $query = mysqli_query($db, $sql);
                 $index = 1;
                 while ($option = mysqli_fetch_array($query)) {

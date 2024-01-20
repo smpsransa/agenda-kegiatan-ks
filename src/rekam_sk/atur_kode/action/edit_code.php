@@ -12,7 +12,6 @@ if (isset($_POST['action_edit_code'])) {
     // query ke database untuk menyimpan sebagai baris dengan masing-masing kolom (tanggal, pukul, tempat, agenda)
     $sql = "UPDATE statement_code SET code='$data_code', name='$data_name', description='$data_desc', more='$data_more' WHERE id='$data_id';";
 
-    echo $sql;
     if (mysqli_query($db, $sql)) {
         // jika query berhasil disimpan
         // akan di alihkan ke halaman index.php dengan status=success

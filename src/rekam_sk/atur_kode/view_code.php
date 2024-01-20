@@ -13,15 +13,15 @@
         </thead>
         <tbody>
             <?php
-            $sql = "SELECT * FROM statement_code";
+            $sql = "SELECT * FROM statement_code ORDER BY code;";
             $query = mysqli_query($db, $sql);
             $index = 1;
             while ($data = mysqli_fetch_array($query)) {
                 echo ("<tr>");
                 // column data
                 echo ("<td>" . $index . "</td>");
-                echo ("<td>" . $data['code'] . "</td>");
-                echo ("<td>" . $data['name'] . "</td>");
+                echo ("<td style='font-weight: bold;'>" . $data['code'] . "</td>");
+                echo ("<td style='text-transform: uppercase; font-weight: bold;'>" . $data['name'] . "</td>");
                 echo ("<td>" . $data['description'] . "</td>");
                 echo ("<td>" . $data['more'] . "</td>");
                 echo ("<td>");

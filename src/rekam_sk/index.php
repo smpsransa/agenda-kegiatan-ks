@@ -9,7 +9,7 @@
 
 <?php include_once("./sk_add.php"); ?>
 <?php include_once("./util/post_alert.php"); ?>
-<?php include_once("./view_sk.php"); ?>
+<?php include_once("./sk_table.php"); ?>
 <!-- body end -->
 
 <?php include "../meta_html/common_end.php" ?>
